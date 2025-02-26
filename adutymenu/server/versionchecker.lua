@@ -1,5 +1,5 @@
-local currentVersion = "1.0.0" -- Deine aktuelle Skript-Version
-local versionURL = "https://raw.githubusercontent.com/ghostservice01/AdminDuty/server/version.lua"
+local currentVersion = "1.0.0" -- Deine aktuelle Version
+local versionURL = "https://raw.githubusercontent.com/ghostservice01/AdminDuty/main/adutymenu/server/version.txt"
 
 PerformHttpRequest(versionURL, function(err, latestVersion, headers)
     if err ~= 200 then
@@ -8,7 +8,7 @@ PerformHttpRequest(versionURL, function(err, latestVersion, headers)
     end
 
     if latestVersion then
-        latestVersion = latestVersion:gsub("%s+", "")
+        latestVersion = latestVersion:gsub("%s+", "") -- Leerzeichen/Zeilenumbrüche entfernen
 
         if latestVersion ~= currentVersion then
             print("^3[WARNING] Dein Script ist veraltet!^0")
